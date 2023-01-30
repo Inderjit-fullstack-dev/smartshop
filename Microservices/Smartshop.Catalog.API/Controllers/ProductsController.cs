@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Smartshop.Catalog.API.Repositories.Contracts;
 using Smartshop.Catalog.API.ViewModels;
 using System;
@@ -11,10 +12,13 @@ namespace Smartshop.Catalog.API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
+        private readonly ILogger<ProductsController> _logger;
 
-        public ProductsController(IProductRepository productRepository)
+        public ProductsController(IProductRepository productRepository, 
+                ILogger<ProductsController> logger)
         {
             _productRepository = productRepository;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -27,7 +31,8 @@ namespace Smartshop.Catalog.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -41,7 +46,8 @@ namespace Smartshop.Catalog.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -55,7 +61,8 @@ namespace Smartshop.Catalog.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -69,7 +76,8 @@ namespace Smartshop.Catalog.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -83,7 +91,8 @@ namespace Smartshop.Catalog.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -97,7 +106,8 @@ namespace Smartshop.Catalog.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -111,7 +121,8 @@ namespace Smartshop.Catalog.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
     }

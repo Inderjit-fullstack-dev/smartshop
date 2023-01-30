@@ -1,6 +1,7 @@
 {
-  "ConnectionStrings": {
-    "MongoDBCatalogDB": ""
+  "MongoDB": {
+    "DefaultConnection": "YOUR_CONNECTION_STRING",
+    "DatabaseName": "YOUR_DATABASE_NAME"
   },
   "Logging": {
     "LogLevel": {
