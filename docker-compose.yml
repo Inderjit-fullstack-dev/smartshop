@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  smartshop.catalog.api:
+    image: ${DOCKER_REGISTRY-}smartshopcatalogapi
+    build:
+      context: .
+      dockerfile: Microservices/Smartshop.Catalog.API/Dockerfile
