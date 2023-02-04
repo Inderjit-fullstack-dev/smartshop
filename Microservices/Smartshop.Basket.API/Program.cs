@@ -1,9 +1,13 @@
+using Smartshop.Basket.API.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
 builder.Services.AddStackExchangeRedisCache(x => x.Configuration = 
     builder.Configuration.GetValue<string>("Redis:ConnectionString"));
+
+builder.Services.AddScoped<IBasket, Basket>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
